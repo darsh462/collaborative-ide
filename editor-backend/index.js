@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const codeRunRouter = require('./Routes/codeRun');
 const cors = require('cors');
 const url = require('url');
+const path = require('path');
 
 const PORT = process.env.PORT || 5000;
 
@@ -23,6 +24,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/code', codeRunRouter);
+app.use(
+    express.static(path.join(__dirname, "../editor/build"))
+);
 
 const videoSocket = new WebSocket.Server({ noServer: true });
 
