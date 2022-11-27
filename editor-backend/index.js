@@ -29,7 +29,7 @@ app.use(
 );
 app.get("*", (req, res) => {
     res.sendFile(
-        path.join(__dirname, "../client/build/index.html")
+        path.join(__dirname, "../editor/build/index.html")
     );
 })
 
